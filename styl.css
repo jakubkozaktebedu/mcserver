@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.tlo {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+    pointer-events: none;
+}
+.text {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    text-align: center;
+    overflow-wrap: anywhere;
+        position: relative;
+    z-index: 2;
+    color: white;
+}
+.text img{
+    height: 300px;
+    width: 450px;
+}
