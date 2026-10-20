@@ -1,5 +1,7 @@
 /* USTAWIENIA OGÓLNE */
-
+html {
+    scroll-behavior: smooth;
+}
 * {
     margin: 0;
     padding: 0;
@@ -41,8 +43,8 @@ body {
     color: white;
     text-decoration: none;
     white-space: nowrap;
-    font-weight: 400;
-
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
     transition: color 0.15s;
 }
 
@@ -251,10 +253,11 @@ body {
     }
 
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-
-        padding: 35px 25px 50px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 35px 25px 50px;
     }
 
     .hero-logo {
@@ -290,4 +293,357 @@ body {
     .top a {
         transition: none;
     }
+}
+.secondary{
+        color: white;
+    text-decoration: none;
+    font-size: 23px;
+}
+#o-serwerze {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    color: white;
+}
+#o-serwerze .eyebrow{
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#o-serwerze h2{
+    padding: 10px;
+        line-height: 1.3;
+            font-family: 'Courier New', Courier, monospace;
+}
+.about-copy{
+    font-size: 25px;
+        font-family: 'Courier New', Courier, monospace;
+line-height: 1.3;
+}
+#o-serwerze img{
+    height: 500px;
+    width: 850px;
+}
+/* WSPÓLNY KONTENER */
+
+.wrap {
+    width: calc(100% - 40px);
+    max-width: 1150px;
+    margin-inline: auto;
+}
+
+/* PANEL DISCORDA */
+
+.community {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    margin-top: 60px;
+    padding: 40px;
+
+    background: linear-gradient(120deg, #292341, #181724);
+    border: 1px solid #7561ad;
+    border-left: 5px solid #b5a0ff;
+
+    box-shadow: 0 8px 0 #0b0b12;
+    color: white;
+}
+
+/* DEKORACYJNA POŚWIATA */
+
+.community::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -80px;
+
+    width: 300px;
+    height: 300px;
+
+    background: radial-gradient(
+        circle,
+        rgba(155, 120, 255, 0.18),
+        transparent 70%
+    );
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* IKONA */
+
+.discord-icon {
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 75px;
+    height: 75px;
+
+    background: #b5a0ff;
+    color: #251b40;
+    border: 2px solid #d1c4ff;
+    box-shadow: 0 5px 0 #65518f;
+
+    font-size: 42px;
+}
+
+/* TEKST W PANELU */
+
+.community > div:not(.discord-icon) {
+    flex: 1;
+    min-width: 0;
+}
+
+.community .eyebrow {
+    margin: 0 0 10px;
+
+    color: #c4b4ff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+
+.community h2 {
+    margin: 0 0 14px;
+
+    color: #ffffff;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.community p:not(.eyebrow) {
+    max-width: 520px;
+    margin: 0;
+
+    color: #c7c1d8;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+/* FIOLETOWY PRZYCISK 3D */
+
+.community .btn.purple {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px 22px;
+
+    background: #b5a0ff;
+    color: #251b40;
+
+    border: 2px solid #d1c4ff;
+    border-radius: 0;
+    box-shadow: 0 5px 0 #65518f;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        transform 0.15s,
+        box-shadow 0.15s;
+}
+
+.community .btn.purple:hover {
+    background: #cbbcff;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #65518f;
+}
+
+.community .btn.purple:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+/* KARTY SKLEPU I REGULAMINU */
+
+.extras {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+
+    margin-top: 35px;
+    margin-bottom: 60px;
+}
+
+.extras > div {
+    position: relative;
+    padding: 32px;
+
+    background: linear-gradient(135deg, #1c2618, #141b12);
+    border: 1px solid #36482d;
+    border-top: 3px solid #8fbd63;
+
+    box-shadow: 0 6px 0 #090e07;
+
+    transition:
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+.extras > div:hover {
+    border-color: #8fbd63;
+    transform: translateY(-3px);
+}
+
+/* SYMBOLE NAD TYTUŁAMI */
+
+.extras > div > span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+
+    background: #26371e;
+    color: #b9ee75;
+    border: 1px solid #4a6339;
+
+    font-size: 26px;
+}
+
+.extras h3 {
+    margin: 0 0 12px;
+
+    color: #f3f7ef;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.extras p {
+    margin: 0 0 24px;
+
+    color: #b5c1ad;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+/* LINKI W KARTACH */
+
+.extras .text-button {
+    padding: 0 0 6px;
+
+    background: transparent;
+    color: #b9ee75;
+
+    border: 0;
+    border-bottom: 1px solid #617e46;
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s,
+        border-color 0.15s;
+}
+
+.extras .text-button:hover {
+    color: #d9ffab;
+    border-color: #d9ffab;
+}
+
+/* OBSŁUGA KLAWIATURY */
+
+.community .btn:focus-visible,
+.extras .text-button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 6px;
+}
+
+/* TABLETY */
+
+@media (max-width: 950px) {
+    .community {
+        flex-wrap: wrap;
+    }
+
+    .community .btn.purple {
+        margin-left: 103px;
+    }
+}
+
+/* TELEFONY */
+
+@media (max-width: 600px) {
+    .community {
+        gap: 22px;
+        padding: 28px 22px;
+        margin-top: 35px;
+    }
+
+    .discord-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 32px;
+    }
+
+    .community > div:not(.discord-icon) {
+        flex-basis: 100%;
+    }
+
+    .community .btn.purple {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .extras {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 35px;
+    }
+
+    .extras > div {
+        padding: 26px;
+    }
+}
+
+/* OGRANICZENIE ANIMACJI */
+
+@media (prefers-reduced-motion: reduce) {
+    .community .btn.purple,
+    .extras > div,
+    .extras .text-button {
+        transition: none;
+    }
+}
+#regulamin{
+    line-height: 1.5;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#regulamin h1{
+    font-size: 20px;
+    line-height: 1.4;
+}
+#regulamin h2{
+    font-size: 40px;
+    text-align: center;
 }
