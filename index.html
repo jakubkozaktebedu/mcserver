@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PL_MOUNTAIN SERWER</title>
+    <link rel="icon" type="image/png" href="Wokselowy górski serwer z pierogiem.png">
 <style>
     @import URL("styl.css");
 </style>
@@ -14,7 +15,8 @@
         <a href="index.html">Strona Główna</a>
         <a href="#o-serwerze">O Serwerze</a>
         <a href="#regulamin">Regulamin</a>
-        <a href="#sklep">Sklep</a></h1>
+        <a href="#sklep">Sklep</a>
+        <a href="#spolecznosc">Discord</a></h1>
     </div>
     <div class="main">
 
@@ -40,11 +42,14 @@
                 <b>I pamiętaj: POLSKA GUROM!</b>
             </p>
 
-            <a href="#jak-zagrac" class="hero-button">
+<button type="button" class="hero-button" onclick="kopiujAdres(this)">
                 ZACZNIJ GRAĆ →
-            </a>
+</button>
+<p class="server-status" id="server-status" aria-live="polite">
+    Sprawdzanie liczby graczy…
+</p>
             <p class="hero-address">
-                IP SERWERA: <strong>WKRÓTCE</strong>
+                IP SERWERA: <strong>mc.pl-mountain.pl</strong>
             </p>
             <a href="#o-serwerze" class="secondary">
               Poznaj serwer ↓</a>
@@ -107,9 +112,12 @@
                 </p>
             </div>
 
-            <button class="btn purple" data-dialog="Discord">
-                DISCORD ↗
-            </button>
+           <a class="btn purple"
+   href="https://discord.gg/5W3QbU96p"
+   target="_blank"
+   rel="noopener noreferrer">
+    DISCORD ↗
+</a>
 
         </section>
 
@@ -229,6 +237,83 @@
 </section>
 
     </div>
-    <div class="footer"></div>
+<footer class="site-footer">
+    <div class="footer-content">
+        <a href="#" class="footer-brand">PL-MOUNTAIN</a>
+
+        <p class="footer-slogan">
+            Góry, przygoda i dobra ekipa. Do zobaczenia na szlaku!
+        </p>
+
+        <a class="footer-contact" href="mailto:kontakt@pl-mountain.pl">
+            kozak_op@pl-mountain.pl
+        </a>
+
+        <div class="footer-bottom">
+            <p>© <span id="footer-year"></span> PL-MOUNTAIN</p>
+            <p>
+                Nieoficjalny serwer Minecraft.
+                Nie jest powiązany z Mojang ani Microsoft.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+</script>
+    <script>
+async function kopiujAdres(przycisk) {
+    try {
+        await navigator.clipboard.writeText("mc.pl-mountain.pl");
+
+        przycisk.textContent = "ADRES SKOPIOWANY ✓";
+
+        setTimeout(() => {
+            przycisk.textContent = "ZACZNIJ GRAĆ →";
+        }, 3000);
+    } catch {
+        prompt("Skopiuj adres serwera:", "mc.pl-mountain.pl");
+    }
+}
+</script>
+<script>
+    // Wpisz adres, którego używasz do łączenia się w Minecraft.
+    const serverAddress = "mc.pl-mountain.pl";
+    const statusElement = document.getElementById("server-status");
+
+    async function updateServerStatus() {
+        try {
+            const response = await fetch(
+                "https://api.mcsrvstat.us/3/" +
+                encodeURIComponent(serverAddress)
+            );
+
+            if (!response.ok) {
+                throw new Error("Nie udało się pobrać statusu");
+            }
+
+            const data = await response.json();
+
+            if (data.online === true && data.players) {
+                statusElement.textContent =
+                    `Online: ${data.players.online} / ${data.players.max} graczy`;
+                statusElement.style.color = "#73e88b";
+            } else {
+                statusElement.textContent = "Serwer jest offline";
+                statusElement.style.color = "#ff8585";
+            }
+        } catch (error) {
+            statusElement.textContent = "Status chwilowo niedostępny";
+            statusElement.style.color = "#cccccc";
+        }
+    }
+
+    updateServerStatus();
+
+    // Ponowne sprawdzenie co 60 sekund.
+    setInterval(updateServerStatus, 60000);
+</script>
 </body>
 </html>
