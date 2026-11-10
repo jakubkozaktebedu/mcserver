@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sklep z rangami | PL-Mountain.pl</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #10140f;
+      --forest: #263f19;
+      --lime: #b9ee75;
+      --muted: #d1d9c9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #fff;
+      background: radial-gradient(ellipse at top, #273d1f, var(--background) 65%);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--lime); outline-offset: 5px; }
+    .top { background: var(--forest); border-bottom: 1px solid #537440; }
+    .nav {
+      max-width: 1300px;
+      margin: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 24px;
+      font: bold 1rem "Courier New", monospace;
+    }
+    .nav a { text-decoration: none; }
+    .nav a:hover, .brand { color: var(--lime); }
+    main { max-width: 1300px; margin: auto; padding: 48px 24px 56px; }
+    .intro { text-align: center; margin-bottom: 32px; }
+    .eyebrow {
+      color: var(--lime);
+      font: bold .8rem "Courier New", monospace;
+      letter-spacing: .2em;
+    }
+    h1 { font-size: clamp(2.25rem, 6vw, 4rem); line-height: 1.08; margin: 12px 0; }
+    .intro p:last-child { color: var(--muted); margin: 0; }
+    .ranks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .rank {
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(140deg, #1c2618, #141b12);
+      border: 1px solid #36482d;
+      border-top: 4px solid var(--accent);
+      box-shadow: 0 6px 0 #090e07;
+    }
+    .rank-header { padding: 20px; background: #222f1d; }
+    .rank h2 {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font: bold clamp(1.6rem, 3vw, 2.2rem) "Courier New", monospace;
+      text-transform: uppercase;
+    }
+    .rank-header p { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; }
+    code { padding: 3px 7px; background: #10140f; color: var(--accent); }
+    .rank ul { margin: 0; padding: 4px 20px 16px; list-style: none; }
+    .rank li { position: relative; padding: 12px 0 12px 20px; }
+    .rank li + li { border-top: 1px solid #34412f; }
+    .rank li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 21px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      transform: rotate(45deg);
+    }
+    .rank li span { display: block; margin-top: 3px; }
+    .rank span, footer { color: var(--muted); font-size: .875rem; }
+    .rank-purchase { margin-top: auto; padding: 0 20px 20px; }
+    .buy {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #10140f;
+      font: bold 1rem "Courier New", monospace;
+      text-align: center;
+      text-decoration: none;
+    }
+    .buy[href]:hover { background: #e0f5c9; }
+    .buy:disabled { opacity: .65; cursor: not-allowed; }
+    .rank-purchase p { margin: 8px 0 0; color: var(--muted); font-size: .875rem; }
+    footer { text-align: center; padding: 24px; background: #151e12; }
+    @media (max-width: 800px) {
+      main { max-width: 560px; padding: 32px 16px 40px; }
+      .ranks { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <nav class="nav" aria-label="Menu główne">
+      <a class="brand" href="index.html">PL-MOUNTAIN.PL</a>
+      <a href="index.html">← Strona główna</a>
+    </nav>
+  </header>
+  <main>
+    <header class="intro">
+      <p class="eyebrow">PL-MOUNTAIN.PL</p>
+      <h1>Sklep z rangami</h1>
+      <p>Porównaj wyposażenie dostępne w zestawach VIP, SVIP i Sponsor.</p>
+    </header>
+    <section class="ranks" aria-label="Porównanie rang">
+      <article class="rank" style="--accent: #a4dc6f">
+        <header class="rank-header">
+          <h2>VIP</h2>
+          <p><code>/kit vip</code> <span>co 24 godziny</span></p>
+        </header>
+        <ul>
+          <li><strong>Komplet diamentowej zbroi</strong><span>Ochrona III · Niezniszczalność III · Ciernie II</span></li>
+          <li><strong>Diamentowy kilof</strong><span>Wydajność III · Fortuna III · Niezniszczalność III</span></li>
+          <li><strong>Diamentowa siekiera</strong><span>Wydajność III · Fortuna III · Niezniszczalność III</span></li>
+          <li><strong>Diamentowa łopata</strong><span>Wydajność III · Niezniszczalność III</span></li>
+          <li><strong>Netherytowy miecz</strong><span>Ostrość IV · Niezniszczalność III · Zaklęty ogień II · Grabież III</span></li>
+          <li><strong>64 steki i 16 złotych jabłek</strong></li>
+        </ul>
+        <div class="rank-purchase">
+          <!-- Po konfiguracji płatności zamień przycisk na link do produktu u operatora. -->
+          <button class="buy" type="button" disabled aria-describedby="status-vip">Kup VIP</button>
+          <p id="status-vip">Płatności w przygotowaniu</p>
+        </div>
+      </article>
+      <article class="rank" style="--accent: #b9ee75">
+        <header class="rank-header">
+          <h2>SVIP</h2>
+          <p><code>/kit svip</code> <span>co 24 godziny</span></p>
+        </header>
+        <ul>
+          <li><strong>Komplet diamentowej zbroi</strong><span>Ochrona V · Niezniszczalność III · Ciernie II</span></li>
+          <li><strong>Diamentowy kilof</strong><span>Wydajność VII · Fortuna III · Niezniszczalność III</span></li>
+          <li><strong>Diamentowa siekiera</strong><span>Wydajność VI · Fortuna III · Niezniszczalność III</span></li>
+          <li><strong>Diamentowa łopata</strong><span>Wydajność V · Niezniszczalność III</span></li>
+          <li><strong>Netherytowy miecz</strong><span>Ostrość VII · Niezniszczalność III · Zaklęty ogień II · Grabież IV</span></li>
+          <li><strong>64 steki, 32 złote jabłka i 16 diamentów</strong></li>
+        </ul>
+        <div class="rank-purchase">
+          <!-- Po konfiguracji płatności zamień przycisk na link do produktu u operatora. -->
+          <button class="buy" type="button" disabled aria-describedby="status-svip">Kup SVIP</button>
+          <p id="status-svip">Płatności w przygotowaniu</p>
+        </div>
+      </article>
+      <article class="rank" style="--accent: #ead286">
+        <header class="rank-header">
+          <h2>Sponsor</h2>
+          <p><code>/kit sponsor</code> <span>co 24 godziny</span></p>
+        </header>
+        <ul>
+          <li><strong>Komplet netherytowej zbroi</strong><span>Ochrona VIII · Niezniszczalność III · Ciernie III</span></li>
+          <li><strong>Netherytowy kilof</strong><span>Wydajność VII · Fortuna V · Niezniszczalność V</span></li>
+          <li><strong>Netherytowa siekiera</strong><span>Wydajność V · Fortuna III · Niezniszczalność III</span></li>
+          <li><strong>Netherytowy miecz</strong><span>Ostrość X · Zaklęty ogień II · Grabież V · Niezniszczalność V</span></li>
+        </ul>
+        <div class="rank-purchase">
+          <!-- Po konfiguracji płatności zamień przycisk na link do produktu u operatora. -->
+          <button class="buy" type="button" disabled aria-describedby="status-sponsor">Kup Sponsor</button>
+          <p id="status-sponsor">Płatności w przygotowaniu</p>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer>PL-Mountain.pl · Nieoficjalny serwer Minecraft</footer>
+</body>
+</html>
